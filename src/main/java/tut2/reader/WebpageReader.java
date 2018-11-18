@@ -1,4 +1,4 @@
-package tut2;
+package tut2.reader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +24,8 @@ public class WebpageReader extends JCasCollectionReader_ImplBase {
 	//Configuration-Parameters which are accessed in MyPipeline by their names 
 	public static final String PARAM_LANGUAGE = "TextEncoding"; 
 	public static final String PARAM_URL = "MyURL"; 
+	public static final String PARAM_SELECTOR = "MySelector"; 
+
 	@ConfigurationParameter(
 			   name = PARAM_LANGUAGE,
 			   description = "Sets the web language",
@@ -37,6 +39,13 @@ public class WebpageReader extends JCasCollectionReader_ImplBase {
 			   mandatory = true,
 			   defaultValue = "https://en.wikipedia.org/wiki/Natural_language_processing")
 			private String myURL;
+	
+	@ConfigurationParameter(
+			   name = PARAM_SELECTOR,
+			   description = "Sets the selector for DOM",
+			   mandatory = false,
+			   defaultValue = "body")
+			private String mySelector;
 	
 	@Override
 	public void initialize(UimaContext context)
@@ -56,7 +65,7 @@ public class WebpageReader extends JCasCollectionReader_ImplBase {
 		this.paragraphs=new ArrayList<String>();
 		this.idx=0;
 		//String title=this.doc.title();
-		for(Element e: this.doc.select("p"))
+		for(Element e: this.doc.select(mySelector))
 		{
 			// add every paragraph to the list
 			this.paragraphs.add(e.ownText());

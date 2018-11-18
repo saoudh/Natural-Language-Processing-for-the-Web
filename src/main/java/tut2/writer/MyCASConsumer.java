@@ -1,4 +1,4 @@
-package tut2;
+package tut2.writer;
 
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasConsumer_ImplBase;

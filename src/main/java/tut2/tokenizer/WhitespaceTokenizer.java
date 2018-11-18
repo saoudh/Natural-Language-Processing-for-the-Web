@@ -1,5 +1,4 @@
-//package de.tudarmstadt.ukp.teaching.nlp4web.tutorial.annotator;
-package tut2;
+package tut2.tokenizer;
 
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
@@ -10,7 +9,6 @@ import de.tudarmstadt.ukp.teaching.general.type.WSToken;
 public class WhitespaceTokenizer
     extends JCasAnnotator_ImplBase
 {
-
     // Adapt the whitespace tokenizer into a UIMA annotator
     @Override
     public void process(JCas jcas)
