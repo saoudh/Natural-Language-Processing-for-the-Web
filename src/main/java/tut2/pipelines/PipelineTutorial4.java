@@ -1,4 +1,4 @@
-package tut2;
+package tut2.pipelines;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngine;
 
